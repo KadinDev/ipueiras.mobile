@@ -14,9 +14,6 @@ export interface StoreProps {
     created_at?: string;
     updated_at?: string;
     instagram?: string;
-    email?: string;
-    password?: string;
-    password_confirm?: string;
     authorId?: string;
     categoryId?: string;
 

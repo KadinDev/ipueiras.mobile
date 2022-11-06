@@ -4,7 +4,7 @@ export interface MeProps {
 	name: string;
 	email: string;
 	store: {
-		id?: string;
+        id?: string;
 		name?: string;
 		description?: string;
 		banner?: string;
@@ -13,9 +13,9 @@ export interface MeProps {
         contact?: string;
         address?: string;
         time?: string;
+        attendance?: string;
         instagram?: string;
-        categoryId?: string;
-        created_at?: string;
         authorId?: string;
+        categoryId?: string;
     }
 }

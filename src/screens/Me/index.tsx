@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from "react"
+import {Text} from 'react-native'
+
 import {
     Container,
     Header,
@@ -48,13 +50,13 @@ export function Me() {
     const navigation = useNavigation();
     const [loadStore, setLoadStore] = useState(false)
    
-    const [myStore, setMyStore] = useState<MeProps>()
+    const [user, setUser] = useState<MeProps>()
 
     useEffect(() => {
         setLoadStore(true)
         async function loadMyStore(){
             const response = await api.get('/me')
-            setMyStore(response.data)
+            setUser(response.data)
             setLoadStore(false)
         }
         loadMyStore()
@@ -79,7 +81,7 @@ export function Me() {
                             />
                         </ButtonHeader>
 
-                        { !myStore?.store?.name && 
+                        { !user?.store?.name && 
                             <ButtonHeader onPress={ handleNavigateRegisterStore }>
                                 <Icon 
                                     icon='skip-next'
@@ -97,7 +99,8 @@ export function Me() {
                     source={{ uri:'https://blog.ferimport.com.br/wp-content/uploads/2021/07/marceneiro.png' }}
                 />
                 
-                <TitleStore> { myStore?.name } </TitleStore>
+                <TitleStore> { user?.name } </TitleStore>
+                <Text> Minha Loja: {user?.store?.name} </Text>
             </ScrollContainer>
         </Container>
     )

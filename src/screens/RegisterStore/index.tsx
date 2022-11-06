@@ -81,7 +81,7 @@ export function RegisterStore() {
         async function loadCategories(){
             const response = await api.get('/category')
             setCategories(response.data)
-            setCategorySelected(response.data[1])
+            setCategorySelected(response.data[0])
         }
         loadCategories()
     },[])
@@ -124,9 +124,13 @@ export function RegisterStore() {
                 name: store.name,
                 description: store.description,
                 banner: image,
-                
+                contact: store.contact,
+                address: store.address,
+                time: store.time,
+                attendance: store.attendance,
+                instagram: store.instagram,
                 categoryId: categorySelected.id,
-                authorId: user?.id
+                //authorId: user?.id
             })
 
             console.log(response)
