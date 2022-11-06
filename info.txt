@@ -1,0 +1,26 @@
+mudando para bare workflow com TS
+
+após criado(ANTES DE RODAR EXPO START) muda os arquivos:
+    App.tsx
+e cria o tsconfig.json (não coloca nada nele)
+
+ae só rodar expo start e instalar o que perguntar
+
+PRONTO!
+
+
+MAPA
+    localização do user
+npx expo install expo-location
+    
+    no AndroidManifest:
+<uses-permission android:name="android.permission.ACESS_FINE_LOCATION"/>
+    
+    AGORA RECEBE MINHA CHAVE KEY CRIADA NO GOOGLE CLOUD
+<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCYNxPWtXTlus_0V6Ef3TkrHdJV3cB_0Y0"/>
+
+
+https://github.com/react-native-maps/react-native-maps/blob/master/docs/installation.md
+https://console.cloud.google.com/apis/dashboard?project=ipueiras
+
+yarn add react-native-maps

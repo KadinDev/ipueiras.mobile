@@ -1,0 +1,23 @@
+
+
+TELA MAPA
+* fazer marcação no mapa com todos os cadastrados no App
+
+* Cada um com sua imagem na marcação, ao clicar abrir um menu e ter uma navegação para Details Store dessa Loja
+( mesma ideia do StoreCard do Home )
+
+* Função Search no Mapa
+
+
+DETAILS STORE
+* Função adicionar aos favoritos
+* marcação no mapa
+
+MY STORE
+
+* Criar tela de updated loja, fazer navegação para a mesma tela de registro, porém já levando os dados da 
+  loja para atualizar. (assim como fizemos no GoPizza)
+
+* Fazer função de cadastrar loja caso o user nao tenha
+* colocar banner, categoria, e marcação no mapa na tela de criação da loja do user
+
