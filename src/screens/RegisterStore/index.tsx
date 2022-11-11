@@ -33,8 +33,9 @@ import {Icon} from '@components/Icon'
 import {ItemModalCategory} from '@components/ItemModalCategory'
 
 import { useTheme } from 'styled-components/native';
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 
+import { Load } from '@components/Load'
 import { ControlledInput } from '@components/ControlledInput'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -65,13 +66,14 @@ export const schema = yup.object({
 })
 
 export function RegisterStore() {
-    const { user } = useContext(AuthContext)
-
     const navigation = useNavigation()
-    
+    const {user} = useContext(AuthContext)
+
     const { COLORS, FONTS } = useTheme()
 
-    const [image, setImage] = useState('')
+    // para funcionar no back-end, vai ser do tipo ImagePicker.ImageInfo
+    const [image, setImage] = useState<ImagePicker.ImageInfo>({} as ImagePicker.ImageInfo)
+
     const [load, setLoad] = useState(false)
     const [modalSelectCategory, setModalSelectCategory] = useState(false)
     const [categories, setCategories] = useState<CategoryProps[]>([])
@@ -104,7 +106,7 @@ export function RegisterStore() {
             });
 
             if(!result.cancelled){
-                setImage(result.uri);
+                setImage(result);
             }
         }
 
@@ -117,27 +119,43 @@ export function RegisterStore() {
         if(!categorySelected){
             return Alert.alert('Categoria', 'Selecione sua categoria!')
         }
-        setLoad(true)
 
-        try {
-            const response = await api.post('/newstore' , {
-                name: store.name,
-                description: store.description,
-                banner: image,
-                contact: store.contact,
-                address: store.address,
-                time: store.time,
-                attendance: store.attendance,
-                instagram: store.instagram,
-                categoryId: categorySelected.id,
-                //authorId: user?.id
+        try {           
+            setLoad(true) 
+
+            // tratando imagem para enviar para o back
+            const fileExtension = image.uri.split('.').pop()
+            const photoFile = {
+                name: `${user.name}.${fileExtension}`.toLowerCase(),
+                uri: image.uri,
+                type: `${image.type}/${fileExtension}`
+            } as any
+
+            const formData = new FormData()
+
+            // aqui são os mesmos nomes que o back espera, assim como tem no Insomnia
+            formData.append('name', store.name)
+            formData.append('description', store.description)
+            formData.append('file', photoFile )
+            formData.append('contact', store.contact)
+            formData.append('address', store.address)
+            formData.append('time', store.time)
+            formData.append('attendance', store.attendance)
+            formData.append('instagram', store.instagram)
+            formData.append('category_id', categorySelected.id)
+
+            const response = await api.post('/newstore', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
             })
-
+            navigation.navigate('Home')
+            setLoad(false)
             console.log(response)
-            //navigation.navigate('Home')
 
         } catch (error) {
             console.log(error)
+            setLoad(false)
         }
     }
  
@@ -172,12 +190,12 @@ export function RegisterStore() {
                                     <Image 
                                         resizeMode='cover'
                                         style={{width: '100%', height: '100%'}} 
-                                        source={{uri: image ? image : 'no-file'}} 
+                                        source={{uri: image ? image.uri : 'no-file'}} 
                                     />
                                     <ButtonAddBanner onPress={handlePickerImage}>
                                         <Icon 
                                             icon='add-a-photo' 
-                                            color={!image ? COLORS.ORANGE_500 : COLORS.WHITE_600} 
+                                            color={!image.uri ? COLORS.ORANGE_500 : COLORS.WHITE_600} 
                                             size={RFValue(40)} 
                                         />
                                     </ButtonAddBanner>
@@ -337,7 +355,11 @@ export function RegisterStore() {
                             </ContentInput>
 
                             <Button onPress={ handleSubmit(handleRegisterStore) }>
-                                <Title> Registrar </Title>
+                                { load ? (
+                                    <Load size={RFValue(20)} />
+                                ) : (
+                                    <Title> Registrar </Title>
+                                ) }
                             </Button>
 
                             <Modal

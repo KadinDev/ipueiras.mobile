@@ -52,6 +52,9 @@ export function DetailStore() {
         alert(store.name)
     }
 
+    const bannerStore = `https://blog.ferimport.com.br/wp-content/uploads/2021/07/marceneiro.png`
+    console.log(bannerStore)
+
     return(
         <Container>
             <StatusBar style='light' />
@@ -77,7 +80,7 @@ export function DetailStore() {
                     </ActionsHeader>
 
                     <ImageStore
-                        source={{ uri:'https://blog.ferimport.com.br/wp-content/uploads/2021/07/marceneiro.png' }}
+                        source={{ uri: bannerStore }}
                     />
 
                 </Header>
@@ -112,9 +115,9 @@ export function DetailStore() {
                     </ContentContact>
 
                     <ContentAttendance>
-                        <AttendanceStore> {store.attendance} </AttendanceStore>
+                        <AttendanceStore> {store.time} </AttendanceStore>
                         <Icon icon='timer' size={RFValue(20)} color={theme.COLORS.ORANGE_700}/>
-                        <TimeStore> {store.time} </TimeStore>
+                        <TimeStore> {store.attendance} </TimeStore>
                     </ContentAttendance>
 
                     <ViewMap>

@@ -134,14 +134,15 @@ export const ContactStore = styled.Text`
 `;
 
 export const ContentAttendance = styled.View`
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: ${RFValue(10)}px;
     margin-bottom: ${RFValue(20)}px;
 `;
 
 export const AttendanceStore = styled.Text`
+    margin-bottom: ${RFValue(4)}px;
     color: ${({theme}) => theme.COLORS.TEXT_OPACITY};
     font-size: ${RFValue(15)}px;
     line-height: ${RFValue(17)}px;
@@ -149,6 +150,7 @@ export const AttendanceStore = styled.Text`
 `;
 
 export const TimeStore = styled.Text`
+    margin-top: ${RFValue(4)}px;
     color: ${({theme}) => theme.COLORS.TEXT_OPACITY};
     font-size: ${RFValue(15)}px;
     line-height: ${RFValue(17)}px;

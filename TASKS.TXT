@@ -1,5 +1,3 @@
-
-
 TELA MAPA
 * fazer marcação no mapa com todos os cadastrados no App
 
@@ -18,6 +16,5 @@ MY STORE
 * Criar tela de updated loja, fazer navegação para a mesma tela de registro, porém já levando os dados da 
   loja para atualizar. (assim como fizemos no GoPizza)
 
-* Fazer função de cadastrar loja caso o user nao tenha
 * colocar banner, categoria, e marcação no mapa na tela de criação da loja do user
 

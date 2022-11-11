@@ -7,15 +7,15 @@ export interface StoreProps {
 
     latitude?: string;
     longitude?:string;
-    contact?: string;
-    address?: string;
-    time?: string;
-    attendance?: string;
+    contact: string;
+    address: string;
+    time: string;
+    attendance: string;
     created_at?: string;
     updated_at?: string;
-    instagram?: string;
-    authorId?: string;
-    categoryId?: string;
+    instagram: string;
+    authorId: string;
+    categoryId: string;
 
     author?: {
         id: string;

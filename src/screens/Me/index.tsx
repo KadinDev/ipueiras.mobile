@@ -33,8 +33,6 @@ import theme from '../../theme'
 import { RFValue } from 'react-native-responsive-fontsize'
 
 import { useNavigation, useRoute } from '@react-navigation/native'
-import { MeProps } from '../../dtos/MeDTO'
-import { StoreProps } from '../../dtos/StoryUserDTO'
 
 import { Icon } from '@components/Icon'
 import instagram from '../../assets/instagram.png'
@@ -43,7 +41,7 @@ import MapView, {Marker} from 'react-native-maps'
 
 import { api } from '../../services/api'
 import { AuthContext } from '@hooks/auth'
-
+import { MeProps } from '../../dtos/MeDTO'
 
 export function Me() {
 
@@ -68,7 +66,7 @@ export function Me() {
 
     return(
         <Container>
-            <StatusBar style='light' />
+            <StatusBar style='light' translucent backgroundColor="transparent" />
             <ScrollContainer>
 
                 <Header>
