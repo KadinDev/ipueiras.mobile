@@ -19,7 +19,7 @@ export const ContainerHeader = styled.View`
     z-index: 100;
 `  
 export const Search = styled.TouchableOpacity.attrs({
-    activiteOpacity: 0.8
+    activiteOpacity: 0.4
 })`
     align-items: center;
     justify-content: center;

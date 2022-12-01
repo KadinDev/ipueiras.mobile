@@ -39,7 +39,7 @@ export const AlertMessage = styled.Text`
 `;
 
 export const CloseAlertMessage = styled.TouchableOpacity.attrs({
-    activiOpacity: 0.8
+    activiOpacity: 0.4
 })`
     position: absolute;
     top: ${RFValue(-18)}px;

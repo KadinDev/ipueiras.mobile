@@ -33,7 +33,7 @@ export const ActionsHeader = styled.View`
 `;
 
 export const ButtonHeader = styled.TouchableOpacity.attrs({
-    activeOpactity: 0.8
+    activeOpactity: 0.4
 })`
     background-color: ${({theme}) => theme.COLORS.BACKGROUND};
     padding: ${RFValue(10)}px;

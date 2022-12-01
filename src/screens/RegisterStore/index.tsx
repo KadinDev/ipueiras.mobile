@@ -149,7 +149,7 @@ export function RegisterStore() {
                     'Content-Type': 'multipart/form-data'
                 }
             })
-            navigation.navigate('Home')
+            navigation.navigate('Me')
             setLoad(false)
             console.log(response)
 

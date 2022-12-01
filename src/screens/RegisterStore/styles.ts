@@ -52,7 +52,7 @@ export const ContentInputBanner = styled.View`
 
 
 export const ButtonAddBanner = styled.TouchableOpacity.attrs({
-    activeOpacity: 0.8
+    activeOpacity: 0.4
 })`
     position: absolute;
 `;
@@ -83,7 +83,7 @@ export const ViewInput = styled.View`
 
 
 export const Button = styled.TouchableOpacity.attrs({
-    activeOpacity: 0.8
+    activeOpacity: 0.4
 })`
     background-color: ${({theme}) => theme.COLORS.ORANGE_500};
     width: 100%;
@@ -96,7 +96,7 @@ export const Button = styled.TouchableOpacity.attrs({
 
 
 export const ButtonCategory = styled.TouchableOpacity.attrs({
-    activeOpacity: 0.8
+    activeOpacity: 0.4
 })`
     height: ${RFValue(40)}px;
     width: 100%;

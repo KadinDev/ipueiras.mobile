@@ -33,6 +33,8 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { StoreProps } from '../../dtos/StoryUserDTO'
 
+import { api } from '../../services/api'
+
 import { Icon } from '@components/Icon'
 import instagram from '../../assets/instagram.png'
 import whatsApp from '../../assets/whatsapp.png'
@@ -51,9 +53,6 @@ export function DetailStore() {
     function handleAddStoreFavorite(store: StoreProps){
         alert(store.name)
     }
-
-    const bannerStore = `https://blog.ferimport.com.br/wp-content/uploads/2021/07/marceneiro.png`
-    console.log(bannerStore)
 
     return(
         <Container>
@@ -80,7 +79,7 @@ export function DetailStore() {
                     </ActionsHeader>
 
                     <ImageStore
-                        source={{ uri: bannerStore }}
+                        source={{ uri: `${api.defaults.baseURL}/files/${store.banner}` }}
                     />
 
                 </Header>

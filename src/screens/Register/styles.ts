@@ -42,7 +42,7 @@ export const ButtonVisiblePassword = styled.TouchableOpacity.attrs({
 `;
 
 export const Button = styled.TouchableOpacity.attrs({
-    activeOpacity: 0.8
+    activeOpacity: 0.4
 })`
     background-color: ${({theme}) => theme.COLORS.ORANGE_700};
     width: 100%;
@@ -65,7 +65,7 @@ export const ViewRegister = styled.View`
 `
 
 export const ButtonRegister = styled.TouchableOpacity.attrs({
-    activeOpacity: 0.5
+    activeOpacity: 0.4
 })`
     margin-top: ${RFValue(10)}px;
 `;
@@ -77,7 +77,7 @@ export const TitleRegister = styled.Text`
 `;
 
 export const IconBack = styled.TouchableOpacity.attrs({
-    activeOpacity: 0.8
+    activeOpacity: 0.4
 })`
     align-items: center;
     justify-content: center;

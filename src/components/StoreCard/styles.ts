@@ -13,7 +13,7 @@ export const Container = styled.TouchableOpacity`
 `  
 
 export const ImageStore = styled.Image.attrs({
-    resizeMode: 'contain'
+    resizeMode: 'cover'
 })`
     width: 100%;
     flex: 1;

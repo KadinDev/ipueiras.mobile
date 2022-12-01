@@ -14,6 +14,8 @@ import { useNavigation } from '@react-navigation/native'
 import { Icon } from '@components/Icon'
 import { RectButtonProps } from 'react-native-gesture-handler'
 
+import { api } from '../../services/api'
+
 import { StoreProps } from '../../dtos/StoryUserDTO'
 
 type Props = TouchableOpacityProps & {
@@ -22,16 +24,14 @@ type Props = TouchableOpacityProps & {
 }
 
 export function StoreCard( { data, handleViewStore, ...rest } : Props ){
-    //const bannerStore = `http://localhost:3333/files/${data.banner}`
-    //console.log(bannerStore)  
-    // 'https://storage.googleapis.com/golden-wind/ignite/react-native/thumbnails/1.png'
 
     return (
         <Container 
             {...rest}
+            activeOpacity={0.4}
             onPress={() => handleViewStore(data.id)}
         >
-            <ImageStore source={{ uri : `https://okawalivros.com.br/wp-content/uploads/2018/04/seja-uma-pessoa-alegre-o-ano-inteiro-1080x675.jpg` }} />
+            <ImageStore source={{ uri: `${api.defaults.baseURL}/files/${data.banner}` }} />
 
             <Content>
                 <Title numberOfLines={1} > {data.name} </Title>

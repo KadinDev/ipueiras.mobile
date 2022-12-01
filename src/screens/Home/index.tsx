@@ -92,7 +92,7 @@ export function Home() {
     }
 
     function handleLogin(){
-        if (isAuthenticated) {
+        if (user.name) {
             signOut() // se tiver logado, vai deslogar
         } else {
             navigation.navigate('Login')
@@ -129,10 +129,10 @@ export function Home() {
                 <View style={{
                     flexDirection: 'row', 
                     width: RFValue(80), 
-                    justifyContent: isAuthenticated ? 'space-between' : 'flex-end',
+                    justifyContent: user.name ? 'space-between' : 'flex-end',
                     alignSelf: 'center'
                 }}>
-                    { isAuthenticated && (
+                    { user.name && (
                         <ButtonHeader onPress={handleMyStore}>
                             <Icon
                                 color={theme.COLORS.ORANGE_700}
@@ -148,7 +148,7 @@ export function Home() {
                         <Icon
                             color={theme.COLORS.ORANGE_700}
                             size={RFValue(25)}
-                            icon={isAuthenticated ? 'logout' : 'login'}
+                            icon={user.name ? 'logout' : 'login'}
                         />
                     </ButtonHeader>
                 </View>
